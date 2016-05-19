@@ -1,0 +1,28 @@
+/* 
+    Created on : May 15, 2016, 8:49:36 PM
+    Author     : artur
+*/
+
+.tree-view, .tree-cell
+{
+    -fx-background-color:  #dadada;
+    -fx-text-fill: #415A78 ;
+    -fx-font-weight: bold ;
+    -fx-border-color: transparent;
+}
+
+.tree-view:focused
+{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.tree-cell:selected 
+{
+     -fx-background-color: #7f8c9b;
+     -fx-text-fill: white ;
+}
+
+.tree-cell {
+    -fx-padding: 0.4em 0em 0.4em 0em ;
+}

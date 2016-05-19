@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/inspect.css"                       type="text/css">
+        <link rel="stylesheet" href="font_awesome/css/font-awesome.min.css" type="text/css">
+        <script src="js/jquery-2.1.4.min.js" type="text/javascript" ></script>
+        <script src="highcharts/js/highcharts.js" type="text/javascript" ></script>
+        <script src="js/application.js"      type="text/javascript" ></script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th id="category_name" colspan="1" class="head"></th>
+                <th><img src="../images/category.png"></th>
+            </tr>
+
+            <tr>
+                <td id="category_info" colspan="2" class="info"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="field">Id:</td>
+                <td id="category_id" class="value"></td>
+            </tr>
+            
+            <tr>
+                <td class="field">Tipo:</td>
+                <td id="category_type" class="value"></td>
+            </tr>
+        </table>
+        <p></p>
+        <p></p>
+        <table>
+            <tr>
+                <td style="font-weight: bold; font-size: x-large;" colspan="1" class="head">Estatistícas Lançamentos</td>
+                <td><img src="../images/posting.png" ></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="field">Registrados:</td>
+                <td id="count_registred" class="value"></td>
+            </tr>
+            
+            <tr>
+                <td class="field">Em Andamento:</td>
+                <td id="count_progress" class="value"></td>
+            </tr>
+            
+            <tr>
+                <td class="field">Finalizados: </td>
+                <td id="count_finished" class="value"></td>
+            </tr>
+            
+            <tr>
+                <td class="field">Excuidos</td>
+                <td id="count_deleted" class="value"></td>
+            </tr>
+            
+            <tr>
+                <td class="field">Total de Lançamentos</td>
+                <td id="sum_count" class="value"></td>
+            </tr>
+        </table>
+        <p></p>
+        <p></p>
+        <div id="chart" style="margin: 0 auto; width: 99%; height: 400px;" ></div>
+    </body>
+</html>

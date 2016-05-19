@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/entrieList.css"                    type="text/css">
+        <link rel="stylesheet" href="font_awesome/css/font-awesome.min.css" type="text/css">
+        <script src="js/jquery-2.1.4.min.js" type="text/javascript" ></script>
+        <script src="js/application.js"      type="text/javascript" ></script>
+    </head>
+    <body>
+        <ul>
+            <li class="items">
+                <i  onclick="application.show( 0 )" class="fa fa-pencil-square-o"></i>
+                <h3 onclick="application.show( 0 )">Lançamentos</h3>
+                <p  onclick="application.show( 0 )">Relatório de Lançamentos.</p>
+                <i id="posting" class="fa fa-chevron-down" style="float: right; margin-top: -40px; font-size: 4em !important;"></i>
+            </li>
+            <li id="balance" class="sub-items" onclick="application.printMonthly()">
+                    <i class="fa fa-balance-scale"></i>
+                    <h3>Balanço dos Lançamentos</h3>
+                    <p>Balanço dos lançamentos é um relatório para informar o usuario sobre o seu balanço mensal.</p>
+                </li>
+            
+            <li class="items" onclick="application.show( 1 )">
+                <i class="fa fa-user"></i>
+                <h3>Usuários</h3>
+                <p>Relatório de Usuários.</p>
+            </li>
+            
+            <li class="items" onclick="application.show( 2 )" >
+                <i class="fa fa-building" ></i>
+                <h3>Entidades</h3>
+                <p>Relatório de Enitidades.</p>
+            </li>
+            
+            <li class="items" onclick="application.show( 3 )" >
+                <i class="fa fa-check"></i>
+                <h3>Tipos de Finalizações</h3>
+                <p>Relatório de Tipos de Finalizações.</p>
+            </li>
+            
+            <li class="items" onclick="application.show( 4 )" >
+                <i class="fa fa-sitemap"></i>
+                <h3>Categorias Lançamentos</h3>
+                <p>Relatório de Categorias de Lançamentos.</p>
+            </li>
+        </ul>
+    </body>
+</html>

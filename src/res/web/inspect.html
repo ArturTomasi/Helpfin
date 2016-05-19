@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/inspect.css"                       type="text/css">
+        <link rel="stylesheet" href="font_awesome/css/font-awesome.min.css" type="text/css">
+        <script src="js/jquery-2.1.4.min.js" type="text/javascript" ></script>
+        <script src="js/application.js"      type="text/javascript" ></script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th id="posting_name" colspan="1" class="head"></th>
+                <th><img src="../images/posting.png" ></th>
+                <button style="top: 10px" onclick="application.print( document.documentElement.outerHTML );" class="fa fa-print fa-3x"></button>
+            </tr>
+
+            <tr>
+                <th id="posting_info" colspan="2" class="info"></th>
+            </tr>
+            
+            <tr>
+                <td class="field">Id:</td>
+                <td id="posting_id" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Data Real:</td>
+                <td id="real_date" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Data Estimada:</td>
+                <td id="estimate_date" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Valor Real:</td>
+                <td id="real_value" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Valor Estimado:</td>
+                <td id="estimate_value" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Finaliza Automáticamente:</td>
+                <td id="fl_completion_auto" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Parcela:</td>
+                <td id="portion" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Total de Parcelas:</td>
+                <td id="portion_total" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Situação:</td>
+                <td id="state" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Categoria do Lançamento:</td>
+                <td id="ref_posting_category" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Responsável:</td>
+                <td id="ref_user" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Tipo de Finalização:</td>
+                <td id="ref_completion_type" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Entidade:</td>
+                <td id="ref_entity" class="value"></td>
+            </tr>
+
+            <tr>
+                <td class="field">Original:</td>
+                <td id="ref_posting" class="value"></td>
+            </tr>
+        </table>
+    </body>
+</html>

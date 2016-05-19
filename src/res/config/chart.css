@@ -1,0 +1,36 @@
+/* 
+    Created on : Feb 21, 2016, 5:37:43 PM
+    Author     : artur
+*/
+.chart-series-line 
+{    
+    -fx-stroke-width: 4px;
+}
+ 
+.default-color0.chart-series-line 
+{ 
+    -fx-stroke: green; 
+}
+
+.default-color1.chart-series-line 
+{ 
+    -fx-stroke: red; 
+}
+
+.default-color2.chart-series-line 
+{ 
+    -fx-stroke: yellow; 
+}
+ 
+.default-color0.chart-line-symbol 
+{
+    -fx-background-color: green;
+}
+.default-color1.chart-line-symbol 
+{ 
+    -fx-background-color:red; 
+}
+.default-color2.chart-line-symbol 
+{
+    -fx-background-color: yellow; 
+}
