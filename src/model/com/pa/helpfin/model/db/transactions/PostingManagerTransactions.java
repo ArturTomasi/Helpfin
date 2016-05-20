@@ -586,7 +586,9 @@ public class PostingManagerTransactions
                                                                " where " +
                                                                C.columns.REF_POSTING_TYPE + " = " + type + " ) " +
                     " and " +
-                    P.columns.STATE + " <> " + Posting.STATE_DELETED + 
+                    P.columns.STATE + " <> " + Posting.STATE_DELETED +
+                    " and " +
+                    db.restrictions( P.columns.REF_USER ) +
                     " group by 1";
         
         

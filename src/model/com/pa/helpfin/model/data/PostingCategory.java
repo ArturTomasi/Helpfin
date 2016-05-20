@@ -75,14 +75,10 @@ public class PostingCategory
                                         .getInstance()
                                         .getPostingManager();
            
-            CompletionTypeManagerService cm = com.pa.helpfin.model.ModuleContext
-                                                        .getInstance()
-                                                        .getCompletionTypeManager();
-            
             HashMap<Integer, Long> map = pm.countPosting( id );
             
             long finished  = map.containsKey( Posting.STATE_FINISHED  ) ? map.get( Posting.STATE_FINISHED  ) : 0;
-            long deleted   = map.containsKey( Posting.STATE_DELETED   ) ? map.get( Posting.STATE_PROGRESS  ) : 0;
+            long deleted   = map.containsKey( Posting.STATE_DELETED   ) ? map.get( Posting.STATE_DELETED   ) : 0;
             long progress  = map.containsKey( Posting.STATE_PROGRESS  ) ? map.get( Posting.STATE_PROGRESS  ) : 0;
             long registred = map.containsKey( Posting.STATE_REGISTRED ) ? map.get( Posting.STATE_REGISTRED ) : 0;
             

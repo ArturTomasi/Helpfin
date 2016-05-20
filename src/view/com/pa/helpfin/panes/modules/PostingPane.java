@@ -2,16 +2,21 @@ package com.pa.helpfin.panes.modules;
 
 import com.pa.helpfin.control.PostingController;
 import com.pa.helpfin.model.ApplicationUtilities;
+import com.pa.helpfin.model.data.DefaultFilter;
 import com.pa.helpfin.model.data.Posting;
+import com.pa.helpfin.model.data.PostingFilter;
 import com.pa.helpfin.model.data.User;
 import com.pa.helpfin.panes.LegendPane;
+import com.pa.helpfin.view.editor.FilterEditor;
 import com.pa.helpfin.view.editor.PostingEditor;
 import com.pa.helpfin.view.inspectors.InspectView;
 import com.pa.helpfin.view.tables.PostingTable;
 import com.pa.helpfin.view.util.ActionButton;
 import com.pa.helpfin.view.util.EditorCallback;
 import com.pa.helpfin.view.util.Prompts;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -25,10 +30,29 @@ public class PostingPane
         AbstractModulesPane
 {
     private PostingController controller = PostingController.getInstance();
+    private PostingFilter filter = new PostingFilter();
     
     public PostingPane()
     {
         initComponents();
+        initDefaultFilter();
+    }
+    
+
+    private void initDefaultFilter()
+    {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis( System.currentTimeMillis() );
+        cal.set( Calendar.DAY_OF_MONTH, cal.getActualMinimum( Calendar.DAY_OF_MONTH ) );
+        
+        Date from = new Date( cal.getTimeInMillis() );
+        
+        cal.add( Calendar.MONTH, 1 );
+        cal.set( Calendar.DAY_OF_MONTH, cal.getActualMaximum( Calendar.DAY_OF_MONTH ) );
+        
+        Date until = new Date( cal.getTimeInMillis() );
+        
+        filter.addCondition( PostingFilter.ESTIMATE_DATE, new Date[]{ from, until } );
     }
     
     private void addPosting()
@@ -45,6 +69,8 @@ public class PostingPane
             
         }, PostingEditor.MODE_NEW ).open();
     }
+    
+    
     
     private void deletePosting()
     {
@@ -72,6 +98,7 @@ public class PostingPane
             Prompts.info( validate );
         }
     }
+    
     
     private void editPosting()
     {
@@ -128,6 +155,21 @@ public class PostingPane
              }, PostingEditor.MODE_NEW ).open();
                 
         }
+    }
+    
+    private void filterPosting()
+    {
+       new FilterEditor( new EditorCallback<DefaultFilter>( filter ) 
+       {
+           @Override
+           public void handle( Event t )
+           {
+               filter = (PostingFilter) source;
+               
+               refreshContent();
+           }
+
+        } ).open();
     }
     
     
@@ -204,6 +246,7 @@ public class PostingPane
     {
         clonePosting.setDisable( ! ApplicationUtilities.getInstance().hasPermission() );
         reversePosting.setDisable( ! ApplicationUtilities.getInstance().hasPermission() );
+        filterPosting.setDisable( ! ApplicationUtilities.getInstance().hasPermission() );
         
         List<Button> actions = new ArrayList();
         
@@ -214,6 +257,7 @@ public class PostingPane
         actions.add( finishPosting );
         actions.add( reversePosting );
         actions.add( inspectPosting );
+        actions.add( filterPosting );
         
         return  actions;
     }
@@ -238,7 +282,7 @@ public class PostingPane
             {
                 postingTable.setItems( com.pa.helpfin.model.ModuleContext.getInstance()
                                                         .getPostingManager()
-                                                        .getNextPostings() );
+                                                        .getValues( filter ) );
             }
         }
 
@@ -336,6 +380,15 @@ public class PostingPane
         public void handle( Event t ) 
         {
             copyPosting();
+        }
+    } );
+  
+    private ActionButton filterPosting = new ActionButton( "Filtro", "search.png", new EventHandler<Event>() 
+    {
+        @Override
+        public void handle( Event t ) 
+        {
+            filterPosting();
         }
     } );
 }

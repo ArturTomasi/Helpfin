@@ -84,9 +84,7 @@ public class PostingTypeManagerTransactions
         
         String sql = P.select + 
                      " where " +
-                     P.columns.ID     + " = " + postingTypeId +
-                     " and " +
-                     P.columns.STATE + " = " + PostingType.STATE_ACTIVE ; 
+                     P.columns.ID     + " = " + postingTypeId; 
                      
         return db.fetchOne( sql, P.fetcher );
     }

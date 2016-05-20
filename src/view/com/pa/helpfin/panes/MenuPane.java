@@ -1,5 +1,6 @@
 package com.pa.helpfin.panes;
 
+import com.pa.helpfin.model.ApplicationUtilities;
 import com.pa.helpfin.panes.modules.AbstractModulesPane;
 import com.pa.helpfin.panes.modules.AnalisysPane;
 import com.pa.helpfin.panes.modules.ReportPane;
@@ -49,6 +50,9 @@ public class MenuPane
     
     private void initComponents()
     {
+        itemReport.setDisable( ! ApplicationUtilities.getInstance().hasPermission() );
+        itemAnalisys.setDisable( ! ApplicationUtilities.getInstance().hasPermission() );
+        
         homePane.setMenuItem( itemHome );
         postingPane.setMenuItem( itemPostings );
         reportPane.setMenuItem( itemReport );
