@@ -55,13 +55,6 @@ public class AnalisysPane
              
             pane.getTabs().addAll( details, postingPane );
         }
-      
-//        if( source instanceof PostingType)
-//        {
-//            PostingType type = (PostingType) source;
-//            
-//            postingPane.setPostings( type );
-//        }
     }
 
     @Override

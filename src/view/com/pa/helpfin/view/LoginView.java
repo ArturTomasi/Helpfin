@@ -111,12 +111,12 @@ public class LoginView
         
         hbox.getChildren().addAll( vbox, btLogin );
         hbox.setSpacing( 10  );
-        hbox.setStyle( "-fx-background-color: #415A78; -fx-background-radius: 10;" );
+        hbox.setStyle( ApplicationUtilities.getBackground2() + " -fx-background-radius: 10;" );
         hbox.setPadding( new Insets( 60 ) );
         
         pane.setPrefSize( 800, 600 );
         pane.getChildren().add( hbox );
-        pane.setStyle( "-fx-background-color: linear-gradient( from 0% 0% to 100% 100%, #415A78 0%, silver 100%);" );
+        pane.setStyle( ApplicationUtilities.getBackground() );
     }
     
     @Override

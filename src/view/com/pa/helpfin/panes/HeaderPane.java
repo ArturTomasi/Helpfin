@@ -45,17 +45,23 @@ public class HeaderPane
     
     private void initComponents()
     {
-        lbApplication.setFont( Font.font( "cursive", FontWeight.BOLD, FontPosture.ITALIC, 26 ) );
         lbApplication.setCache( true );
         lbApplication.setText( ApplicationUtilities.getInstance().getCompanny() );
-        lbApplication.setStyle( "-fx-padding: 10 10 0 0" );
+        lbApplication.setStyle( "-fx-padding: 10 10 0 0;" + 
+                                "-fx-font-weight: bolder;" +
+                                "-fx-font-size: 26pt;" +
+                                "-fx-font-family: \"Helvetica, Verdana, sans-serif\";" +
+                                "-fx-text-fill: " + ApplicationUtilities.getColor() );
       
-        lbModule.setFont( Font.font( "cursive", FontWeight.BOLD, FontPosture.ITALIC, 26 ) );
         lbModule.setCache( true );
         lbModule.setText( "Home" );
-        lbModule.setStyle( "-fx-padding: 10 0 0 10" );
+        lbModule.setStyle( "-fx-padding: 10 0 0 10;" +
+                           "-fx-font-weight: bolder;" +
+                           "-fx-font-size: 26pt;" +
+                           "-fx-font-family: \"Helvetica, Verdana, sans-serif\";" +
+                           "-fx-text-fill: " + ApplicationUtilities.getColor() );
         
-        setStyle( "-fx-border-color: #415A78; -fx-border-width: 0 0 2 0; -fx-padding: 4 0 4 0" );
+        setStyle( "-fx-border-color:" + ApplicationUtilities.getColor() + "-fx-border-width: 0 0 2 0; -fx-padding: 4 0 4 0;" + ApplicationUtilities.getBackground2() );
         getChildren().addAll( lbModule, lbApplication );
     }
     

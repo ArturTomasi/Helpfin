@@ -113,7 +113,8 @@ public class EntriePane
         {
             backBar.setPrefHeight( 35 );
             
-            float labelWidth = Toolkit.getToolkit().getFontLoader().computeStringWidth( backLabel.getText(), font );
+            float labelWidth = Toolkit.getToolkit().getFontLoader().computeStringWidth( backLabel.getText(), 
+                                                                    Font.font( "Helvetica, Verdana, sans-serif", FontWeight.EXTRA_BOLD, FontPosture.REGULAR, 20 ) );
             
             backBar.setSpacing( width - labelWidth - backButton.getMaxWidth() - 20 /*padding*/ );
             
@@ -128,10 +129,13 @@ public class EntriePane
     
     private void initComponentes()
     {
-        backLabel.setFont( font );
-        backLabel.setStyle( "-fx-padding: 5 0 0 10" );
+        backLabel.setFont( Font.font( "Helvetica, Verdana, sans-serif", FontWeight.EXTRA_BOLD, FontPosture.REGULAR, 20 ) );
+        backLabel.setStyle( "-fx-padding: 5 0 0 10;" +
+                            "-fx-text-fill: " + ApplicationUtilities.getColor() );
         
-        backBar.setStyle( "-fx-background-color: transparent; -fx-padding: 1 10 0 0;" );
+        backBar.setStyle( ApplicationUtilities.getBackground2() +
+                          "-fx-background-radius: 10;" +
+                          "-fx-padding: 1 10 0 0;" );
         
         backBar.getChildren().addAll( backLabel, backButton );
         
@@ -160,8 +164,6 @@ public class EntriePane
     } );
     
     private Label backLabel = new Label();
-    
-    private Font font = Font.font( "cursive", FontWeight.BOLD, FontPosture.ITALIC, 20 ) ;
     
     private HBox backBar = new HBox();
     private WebView view = new WebView();

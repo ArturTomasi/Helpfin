@@ -43,6 +43,7 @@ public class PostingDetails
             if( posting != null )
             {
                 engine.executeScript( "setPosting( " + posting.toJSON() + " )" );
+                System.out.println( "setPosting( " + posting.toJSON() + " )" );
             }
         }
 

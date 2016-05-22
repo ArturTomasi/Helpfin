@@ -54,11 +54,12 @@ public class MenuItem
         setText( name );
 
         setStyle( "-fx-background-radius: 10; " +
-                  "-fx-background-color: linear-gradient( from 0% 0% to 100% 100%, silver 0%, #415A78 100%); "+
-                  "-fx-border-color: gray; " +
+                  ApplicationUtilities.getBackground() +
+                  "-fx-border-color:  " + ApplicationUtilities.getColor2() +
+                  "-fx-text-fill: #455A64;" + 
                   "-fx-border-radius: 10; " +
                   "-fx-border-width: 2;"      +
-                  "-fx-font-weight: bold;"  );
+                  "-fx-font-weight: bolder;"  );
     }
     
     private ImageView imageView; 

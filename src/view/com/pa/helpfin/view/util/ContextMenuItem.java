@@ -1,5 +1,6 @@
 package com.pa.helpfin.view.util;
 
+import com.pa.helpfin.model.ApplicationUtilities;
 import com.pa.helpfin.model.ResourceLocator;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
@@ -26,7 +27,8 @@ public class ContextMenuItem
         
         setText( text );
         setStyle( "-fx-background-color: transparent;"+
-                  "-fx-border-color: gray; " +
+                  "-fx-text-fill:" + ApplicationUtilities.getColor() +
+                  "-fx-border-color: " + ApplicationUtilities.getColor2() +
                   "-fx-border-width: 1;"  );
     }
     

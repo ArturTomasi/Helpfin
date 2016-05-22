@@ -70,8 +70,8 @@ public class HomeView
         pane.setLeft( menuPane );
         pane.setRight( actionPane );
 
-        actionPane.setStyle( "-fx-padding: 10 4 4 4; -fx-border-color: #415A78; -fx-border-width: 0 0 0 2;" );
-        pane.setStyle( "-fx-background-color: linear-gradient( from 0% 0% to 100% 100%, #415A78 0%, silver 100%);" );
+        actionPane.setStyle( "-fx-padding: 10 4 4 4; -fx-border-color: " + ApplicationUtilities.getColor() + " -fx-border-width: 0 0 0 2;" );
+        pane.setStyle( ApplicationUtilities.getBackground() );
     }
 
     @Override

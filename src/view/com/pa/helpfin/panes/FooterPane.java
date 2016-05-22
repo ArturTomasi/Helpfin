@@ -14,12 +14,8 @@ import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 
 /**
  * @author artur
@@ -65,25 +61,32 @@ public class FooterPane
     
     private void initComponents()
     {
-        DropShadow ds = new DropShadow();
-        ds.setOffsetY( 3.0f );
-        ds.setColor( Color.color( 0.4f, 0.4f, 0.4f ));
-        
-        lbUser.setFont( Font.font( null, FontWeight.BOLD, 14 ) );
-        lbUser.setEffect( ds );
         lbUser.setCache( true );
-        lbUser.setText( ApplicationUtilities.getInstance().getActiveUserName() );
-        lbUser.setStyle( "-fx-padding: 4 0 0 0" );
+        lbUser.setText( "   " + ApplicationUtilities.getInstance().getActiveUserName() );
+        lbUser.setStyle( "-fx-padding: 4 0 0 0;" + 
+                         "-fx-font-size: 14pt;" +
+                         "-fx-font-family: \"Helvetica, Verdana, sans-serif\";" +
+                         "-fx-text-fill:" + ApplicationUtilities.getColor());
         
-        btSystem.setEffect( ds );
         btSystem.setCache( true );
-        btSystem.setFont( Font.font( null, FontWeight.SEMI_BOLD, 12 ) );
         btSystem.setCursor( Cursor.HAND );
-        btSystem.setStyle( "-fx-background-color: transparent; -fx-border-color: #415A78; -fx-border-width: 1; -fx-border-radius: 10;" );
+        btSystem.setStyle( "-fx-background-color: transparent; " + 
+                           "-fx-font-size: 10pt;" +
+                           "-fx-border-color:" + ApplicationUtilities.getColor() +
+                           "-fx-text-fill:" + ApplicationUtilities.getColor() +
+                           "-fx-font-family: \"Helvetica, Verdana, sans-serif\";" +
+                           "-fx-border-width: 1; " + 
+                           "-fx-border-radius: 10;" );
+       
         btSystem.setText( "Sistema" );
         
-        setStyle( "-fx-border-color: #415A78; -fx-border-width: 2 0 0 0; -fx-padding: 3 0 4 0" );
-        menu.setStyle( "-fx-background-color: linear-gradient( from 0% 0% to 100% 100%, silver 0%, #415A78 100%); " );
+        setStyle( "-fx-border-color: " + ApplicationUtilities.getColor() + 
+                  "-fx-border-width: 2 0 0 0;" + 
+                  "-fx-padding: 3 0 4 0; " + 
+                  ApplicationUtilities.getBackground2() +
+                  "-fx-text-fill:" + ApplicationUtilities.getColor() );
+        
+        menu.setStyle( ApplicationUtilities.getBackground2() );
         getChildren().addAll( lbUser, btSystem );
         
         btSystem.setContextMenu( menu );

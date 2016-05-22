@@ -59,7 +59,7 @@ public class MenuPane
         entriePane.setMenuItem( itemEntries );
         analisysPane.setMenuItem( itemAnalisys );
 
-        setStyle( "-fx-border-color: #415A78; -fx-border-width: 0 2 0 0; -fx-padding: 10 4 4 4" );
+        setStyle( "-fx-border-color: " + ApplicationUtilities.getColor() + " -fx-border-width: 0 2 0 0; -fx-padding: 10 4 4 4" );
         setSpacing( 10 );
         getChildren().addAll( itemHome, itemPostings, itemReport, itemAnalisys, itemEntries );
     }

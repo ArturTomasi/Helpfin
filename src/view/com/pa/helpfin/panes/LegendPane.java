@@ -1,5 +1,6 @@
 package com.pa.helpfin.panes;
 
+import com.pa.helpfin.model.ApplicationUtilities;
 import com.pa.helpfin.model.ResourceLocator;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -42,11 +43,13 @@ public class LegendPane
             setAlignment( Pos.CENTER_LEFT );
                     
             setStyle( "-fx-background-radius: 10; " +
-                        "-fx-background-color: transparent; "+
-                        "-fx-border-radius: 10; " +
-                        "-fx-border-width: 2;"      +
-                        "-fx-font-size: 10;"      +
-                        "-fx-font-weight: bold;"  );
+                       "-fx-background-color: transparent; "+
+                       "-fx-text-fill:" + ApplicationUtilities.getColor2() +
+                       "-fx-font-family: \"Helvetica, Verdana, sans-serif\";" +
+                       "-fx-border-radius: 10px; " +
+                       "-fx-border-width: 2px;"      +
+                       "-fx-font-size: 12px;"      +
+                       "-fx-font-weight: bolder;"  );
         }
     }
     

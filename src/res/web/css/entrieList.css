@@ -6,7 +6,7 @@
 
 body
 {
-    background: linear-gradient( to bottom right, #415A78, silver );
+    background: #ECEFF1;
 }
 
 ul 
@@ -24,7 +24,7 @@ li i
 {
   float: left;
   margin: 0 15px 0 0;
-  font-size: 6em !important;
+  font-size: 3em !important;
   width: 100px
 }
 
@@ -36,16 +36,16 @@ li p
 
 li 
 {
-  padding: 10px;
-  color: #333131;
+padding: 20px 5px 20px 5px;
+  color: #607D8B;
   overflow: auto;
   width: 98%;
 }
 
 li:hover 
 {
-  background: #c0c0c0;
-  color: #415A78;
+  background: #607D8B;
+  color: #ECEFF1;
   cursor: pointer;
   border-radius: 25px;
 }

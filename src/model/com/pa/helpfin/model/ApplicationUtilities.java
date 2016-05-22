@@ -49,6 +49,29 @@ public class ApplicationUtilities
     }
 
     
+    public static  String getBackground()
+    {
+        return "-fx-background-color: #ECEFF1;";
+    }
+
+    
+    public static  String getColor()
+    {
+        return "#ECEFF1;";
+    }
+
+    
+    public static  String getColor2()
+    {
+        return "#607D8B;";
+    }
+    
+    
+    public static  String getBackground2()
+    {
+        return "-fx-background-color: #607D8B;";
+    }
+    
     public User getActiveUser()
     {
         return activeUser;
@@ -100,11 +123,6 @@ public class ApplicationUtilities
     public String getCompanny()
     {
         return "HelpFin";
-    }
-
-    public String getStyle()
-    {
-        return "background-color: #415A78;";
     }
     
     public void logout()

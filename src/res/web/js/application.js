@@ -44,9 +44,9 @@ function refreshGraphic()
     {
         $( '#container' ).highcharts(
         {
-            chart:    { zoomType: 'xy', backgroundColor: 'transparent' },
-            title:    { text: 'Balanço Mensal - ' + months[ new Date().getMonth() ] },
-            subtitle: { text: 'Acumulado dos lançamentos finalizados do mês de ' + months[ new Date().getMonth() ] + " (por dia)" },
+            chart:    { backgroundColor: '#ECEFF1' },
+            title:    { text: 'Balanço Mensal - ' + months[ new Date().getMonth() ], style: { fontWeight: 'bold', color: "#607D8B" } },
+            subtitle: { text: 'Acumulado dos lançamentos finalizados do mês de ' + months[ new Date().getMonth() ] + " (por dia)", style: { color: "#607D8B" } },
             tooltip:  { shared: true, pointFormat: '{series.name}: <b>R$ {point.y:,.2f}</b><br/>' },
             legend:   { layout: 'horizontal', align: 'center', verticalAlign: 'bottom', floating: false, backgroundColor: 'transparent' },
             
@@ -118,14 +118,16 @@ function setCategory( category )
     
     $(function () 
     {
+        Highcharts.setOptions( { lang: { drillUpText: '◁ Voltar para {series.name}' } } );
+        
         $('#chart').highcharts( 
         {
-            chart: { type: 'column', backgroundColor: '#dadada' },
-            title: { text: 'Lançamentos da Categoria - ' + category[ 'category_name' ], style: { fontWeight: 'bold', color: "#415A78" } },
-            subtitle: { text: 'Quantidade de lançamentos por Situação', style: { color: "#415A78" }  },
+            chart: { type: 'column', backgroundColor: '#ECEFF1' },
+            title: { text: 'Lançamentos da Categoria - ' + category[ 'category_name' ], style: { fontWeight: 'bold', color: "#607D8B" } },
+            subtitle: { text: 'Quantidade de lançamentos por Situação', style: { color: "#607D8B" }  },
             xAxis: [ { type: 'category' } ],
             yAxis: [ {
-                title: { text: 'Quantidade', style: { color: "#415A78" } } } ],
+                title: { text: 'Quantidade', style: { fontWeight: 'bold', color: "#607D8B" } } } ],
             legend: { enabled: false },
             plotOptions: {
                 series: { borderWidth: 0, 
@@ -164,17 +166,19 @@ function drilldown()
 {
     $(function () 
     {
+        Highcharts.setOptions( { lang: { drillUpText: '◁ Voltar para {series.name}' } } );
+        
         $('#drilldown').highcharts(
         {
-            chart: { type: 'column', backgroundColor: '#dadada' },
+            chart: { type: 'column', backgroundColor: '#ECEFF1' },
 
-            title: { text: 'Lançamentos da Categoria' , style: { fontWeight: 'bold', color: "#415A78" } },
+            title: { text: 'Lançamentos da Categoria' , style: { fontWeight: 'bold', color: "#607D8B" } },
 
-            subtitle: { text: 'Quantidade de lançamentos por Situação', style: { color: "#415A78" }  },
+            subtitle: { text: 'Quantidade de lançamentos por Situação', style: { color: "#607D8B" }  },
 
             xAxis: [ { type: 'category' } ],
 
-            yAxis: [ { title: { text: 'Quantidade', style: { color: "#415A78" } } } ],
+            yAxis: [ { title: { text: 'Quantidade', style: { fontWeight: 'bold', color: "#607D8B" } } } ],
 
             legend: { enabled: false },
 
@@ -184,12 +188,13 @@ function drilldown()
                        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}' +'</b><br/>' },
 
             series: [{ 
-                    name: 'Tipos de lançamentos', colorByPoint: true,
+                    name: 'Lançamentos', colorByPoint: true,
                     data: serie 
                 } ],
             drilldown: {
             series: drilldownSeries
-            }
+            },
+            credits: [ { enabled: false } ]
         } );
     });
 }

@@ -5,9 +5,10 @@
 
 .tree-view, .tree-cell
 {
-    -fx-background-color:  #dadada;
-    -fx-text-fill: #415A78 ;
-    -fx-font-weight: bold ;
+    -fx-background-color:  #ECEFF1;
+    -fx-text-fill: #607D8B;
+    -fx-font-family: "Helvetica, Verdana, sans-serif";
+    -fx-font-weight: bold;
     -fx-border-color: transparent;
 }
 
@@ -19,8 +20,8 @@
 
 .tree-cell:selected 
 {
-     -fx-background-color: #7f8c9b;
-     -fx-text-fill: white ;
+     -fx-background-color: #607D8B;
+     -fx-text-fill: #ECEFF1 ;
 }
 
 .tree-cell {

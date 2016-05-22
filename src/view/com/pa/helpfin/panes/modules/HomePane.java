@@ -3,7 +3,6 @@ package com.pa.helpfin.panes.modules;
 import com.pa.helpfin.model.ResourceLocator;
 import com.pa.helpfin.model.data.PostingType;
 import java.math.BigDecimal;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
