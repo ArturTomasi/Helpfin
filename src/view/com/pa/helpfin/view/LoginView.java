@@ -79,7 +79,7 @@ public class LoginView
         
         stage.setTitle( "Login" );
         stage.setScene( scene );
-        stage.getIcons().add( new Image( ResourceLocator.getInstance().getImageResource( "helpFin.png") ) );
+        stage.getIcons().add( new Image( ResourceLocator.getInstance().getImageResource( "helpFin.png" ) ) );
         stage.show();
         
         this.stage = stage;
@@ -113,7 +113,7 @@ public class LoginView
         hbox.setSpacing( 10  );
         hbox.setStyle( ApplicationUtilities.getBackground2() + " -fx-background-radius: 10;" );
         hbox.setPadding( new Insets( 60 ) );
-        
+            
         pane.setPrefSize( 800, 600 );
         pane.getChildren().add( hbox );
         pane.setStyle( ApplicationUtilities.getBackground() );

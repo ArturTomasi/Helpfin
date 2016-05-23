@@ -23,7 +23,7 @@ img{
     padding-right: 15px;
 }
 
-button, div{
+button, .tooltip{
     background: transparent;
     border: none;
     color: #607D8B;

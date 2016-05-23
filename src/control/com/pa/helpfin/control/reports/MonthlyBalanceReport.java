@@ -85,14 +85,14 @@ public class MonthlyBalanceReport
                 {
                     sumValues[0] += posting.getEstimateValue();
                     sumValues[1] += posting.getRealValue();
-                    statesMap.put( state, new Double[]{ costValue += state == Posting.STATE_FINISHED ? posting.getRealValue() : posting.getEstimateValue(), revenueValue }  );
+                    statesMap.put( state, new Double[]{ costValue += posting.getRealValue(), revenueValue }  );
                 }
                 
                 else if( category.getPostingType() == PostingType.TYPE_REVENUE )
                 {
                     sumValues[2] += posting.getEstimateValue();
                     sumValues[3] += posting.getRealValue();
-                    statesMap.put( state, new Double[]{ costValue, revenueValue += state == Posting.STATE_FINISHED ? posting.getRealValue() : posting.getEstimateValue() }  );
+                    statesMap.put( state, new Double[]{ costValue, revenueValue += posting.getRealValue() }  );
                 }
             }
 
@@ -118,7 +118,6 @@ public class MonthlyBalanceReport
         DetailsTable statesTable = new DetailsTable( 5f, 33f, 33f, 33f, 33f );
         
         statesTable.setFormatCelll( false );
-        statesTable.setBackground( BaseColor.WHITE );
         statesTable.setHeader( "#",  "Situação", "Valor Despesa", "Valor Receita", "Valor Total" );
 
         Double stateValues[] = statesMap.get( Posting.STATE_REGISTRED );
@@ -165,8 +164,6 @@ public class MonthlyBalanceReport
 
         // make sum
         DetailsTable sumTable = new DetailsTable( 33f, 33f, 33f );
-        
-        sumTable.setBackground( BaseColor.WHITE );
         sumTable.setFormatCelll( false );
         
         sumTable.setHeader( "Tipo", "Valor Estimado", "Valor Real" );

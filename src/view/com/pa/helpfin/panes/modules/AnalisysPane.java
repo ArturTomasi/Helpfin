@@ -69,7 +69,9 @@ public class AnalisysPane
     {
         borderPane.setLeft( tree );
         borderPane.setCenter( pane );
-
+        
+        pane.getStylesheets().add( "config/tab.css" );
+        
         tree.addEventFilter( PostingTree.Events.ON_SELECT, new EventHandler<Event>() 
         {
             @Override

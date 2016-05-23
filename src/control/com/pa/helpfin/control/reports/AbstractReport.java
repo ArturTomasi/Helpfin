@@ -19,7 +19,7 @@ import javafx.application.Platform;
  */
 public abstract  class AbstractReport 
 {
-    protected BaseColor color = new BaseColor( 65, 90, 120 );
+    protected BaseColor color = new BaseColor( 96, 125, 139 );
     
     protected Font fontHead     = new Font( Font.FontFamily.HELVETICA  , 10, Font.BOLD, BaseColor.WHITE );
     protected Font fontRow      = new Font( Font.FontFamily.HELVETICA  , 8,  Font.NORMAL );
@@ -229,6 +229,8 @@ public abstract  class AbstractReport
         extends 
             PdfPTable
     {
+        private BaseColor background  = new BaseColor( 144, 164, 174 ); //90A4AE    
+        
         public Table( float... widths ) throws Exception
         {
             super( widths );
@@ -240,9 +242,9 @@ public abstract  class AbstractReport
             for( String head : header )
             {
                 PdfPCell cell = new PdfPCell();
-                cell.setBorderColor( new BaseColor( 65, 90, 120 ) );
+                cell.setBorderColor( background );
                 cell.setBorderWidth( 1.5f );
-                cell.setBackgroundColor( new BaseColor( 160, 166, 174 ) );
+                cell.setBackgroundColor( background );
 
                 Paragraph paragraph = new Paragraph();
                 paragraph.add( new Chunk( head, fontHead ) );
@@ -260,7 +262,7 @@ public abstract  class AbstractReport
             for( Object r : row )
             {
                 PdfPCell cell = new PdfPCell();
-                cell.setBorderColor( new BaseColor( 65, 90, 120 ) );
+                cell.setBorderColor( background );
                 cell.setBorderWidth( 1 );
                 cell.setPaddingLeft( 3f );
                 
@@ -297,7 +299,11 @@ public abstract  class AbstractReport
         extends 
             PdfPTable
     {
-        private BaseColor background = new BaseColor( 179, 179, 179 );
+        private BaseColor background2 = new BaseColor( 207, 216, 220 ); //#CFD8DC
+        private BaseColor background  = new BaseColor( 144, 164, 174 ); //90A4AE    
+        private BaseColor fontColor   = new BaseColor( 38, 50, 56 ); //263238
+        private BaseColor fontColor2  = new BaseColor( 55, 71, 79 ); //263238
+        
         private boolean formatCelll = true;
         
         public DetailsTable( float... widths ) throws Exception
@@ -336,9 +342,9 @@ public abstract  class AbstractReport
                 String head = header[i];
                 
                 PdfPCell cell = new PdfPCell();
-                cell.setBorderColor( color );
+                cell.setBorderColor( background );
                 cell.setBorderWidth( 1.5f );
-                cell.setBackgroundColor( new BaseColor( 160, 166, 174 ) );
+                cell.setBackgroundColor( background );
 
                 Paragraph paragraph = new Paragraph();
                 paragraph.add( new Chunk( head, new Font( Font.FontFamily.HELVETICA  , 12, Font.BOLD, BaseColor.WHITE ) ) );
@@ -367,11 +373,11 @@ public abstract  class AbstractReport
                 PdfPCell cell = new PdfPCell();
                 cell.setBackgroundColor( BaseColor.WHITE );            
                 cell.setBorderWidth( 1.5f );
-                cell.setBorderColor( color );
 
                 if( i == 0 && formatCelll )
                 {
                     cell.setBackgroundColor( background );
+                    cell.setBorderColor( background );
                     
                     if( column instanceof String )
                     {
@@ -379,7 +385,7 @@ public abstract  class AbstractReport
                         paragraph.setAlignment( Paragraph.ALIGN_MIDDLE );
                         paragraph.setIndentationLeft( 5f );
                         paragraph.setSpacingAfter( 5f );
-                        paragraph.add( new Chunk( column + ":", new Font( Font.FontFamily.HELVETICA  , 12, Font.BOLD, color ) ) );
+                        paragraph.add( new Chunk( column + ":", new Font( Font.FontFamily.HELVETICA  , 12, Font.BOLD, BaseColor.WHITE ) ) );
                         cell.addElement( paragraph );
                     }
 
@@ -395,9 +401,12 @@ public abstract  class AbstractReport
 
                 else
                 {
+                     cell.setBackgroundColor( background2 );
+                     cell.setBorderColor( background2 );
+                     
                     if( column instanceof String )
                     {
-                        Font font = new Font( Font.FontFamily.HELVETICA  , 10, Font.BOLD, cell.getBackgroundColor() == BaseColor.WHITE ? color : BaseColor.WHITE );
+                        Font font = new Font( Font.FontFamily.HELVETICA  , 10, Font.BOLD, fontColor2 );
                         Paragraph paragraph = new Paragraph();
                         paragraph.setAlignment( Paragraph.ALIGN_MIDDLE );
                         paragraph.setSpacingAfter( 5f );

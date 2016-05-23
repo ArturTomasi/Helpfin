@@ -178,7 +178,7 @@ public class PostingTree
         setCursor( Cursor.HAND );
 
         getStylesheets().add( "config/tree.css" );
-        setStyle( "-fx-background-color: transparent; -fx-border-color: #dadada;" );
+        setStyle( "-fx-background-color: transparent;" );
         
         getSelectionModel().selectedItemProperty().addListener( new ChangeListener() 
         {

@@ -1,6 +1,7 @@
 package com.pa.helpfin.panes.modules;
 
 import com.pa.helpfin.control.PostingController;
+import com.pa.helpfin.control.reports.PostingDetailsReport;
 import com.pa.helpfin.model.ApplicationUtilities;
 import com.pa.helpfin.model.data.DefaultFilter;
 import com.pa.helpfin.model.data.Posting;
@@ -13,11 +14,14 @@ import com.pa.helpfin.view.inspectors.InspectView;
 import com.pa.helpfin.view.tables.PostingTable;
 import com.pa.helpfin.view.util.ActionButton;
 import com.pa.helpfin.view.util.EditorCallback;
+import com.pa.helpfin.view.util.FileUtilities;
 import com.pa.helpfin.view.util.Prompts;
+import java.io.File;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import javafx.concurrent.Task;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -225,6 +229,54 @@ public class PostingPane
     }
     
     
+    private void printPosting()
+    {
+        try
+        {
+            Posting posting = postingTable.getSelectedItem();
+             
+            if( posting != null )
+            {
+                File file = FileUtilities.saveFile( "Imprimir Relatório", posting + ".pdf" );
+
+                if( file != null && ! file.exists() )
+                {
+                    Prompts.process("Gerando Relatório " + file.getName() + "..." , new Task<Void>() 
+                    {
+                        @Override
+                        protected Void call() throws Exception 
+                        {
+                            try
+                            {
+                                PostingDetailsReport report = new PostingDetailsReport();
+                                report.setSource( posting );
+                                report.generatePDF( file );
+                            }
+
+                            catch ( Exception e )
+                            {
+                                ApplicationUtilities.logException( e );
+                            }
+
+                            return null;
+                        }
+                    } );
+                }
+            }
+            
+            else
+            {
+                Prompts.info( "Selecione um Lançamento !" );
+            }    
+            
+        }
+        
+        catch ( Exception e )
+        {
+            ApplicationUtilities.logException( e );
+        }
+    }
+    
     
     private void inspectPosting()
     {
@@ -253,11 +305,12 @@ public class PostingPane
         actions.add( addPosting );
         actions.add( editPosting );
         actions.add( deletePosting );
-        actions.add( clonePosting );
         actions.add( finishPosting );
-        actions.add( reversePosting );
         actions.add( inspectPosting );
+        actions.add( printPosting );
         actions.add( filterPosting );
+        actions.add( clonePosting );
+        actions.add( reversePosting );
         
         return  actions;
     }
@@ -389,6 +442,15 @@ public class PostingPane
         public void handle( Event t ) 
         {
             filterPosting();
+        }
+    } );
+  
+    private ActionButton printPosting = new ActionButton( "Imprimir", "pdf.png", new EventHandler<Event>() 
+    {
+        @Override
+        public void handle( Event t ) 
+        {
+            printPosting();
         }
     } );
 }

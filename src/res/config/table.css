@@ -59,6 +59,10 @@
     -fx-border-color: #607D8B;
     -fx-border-width: 0 0 2 0;
 }
+.table-row-cell{
+     -fx-background-radius: 10px;
+}
+
 .table-row-cell:empty {
     -fx-background-color: transparent;
 }
@@ -69,6 +73,7 @@
 
 .table-view:focused .table-row-cell:filled:focused:selected {
     -fx-background-color: #607D8B;
+    -fx-background-radius: 10px;
 }
 
 .split-pane:horizontal > .split-pane-divider {
