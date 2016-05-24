@@ -41,22 +41,11 @@ public class ConfigurationManager
             {
                 properties = new Properties();
 
-                InputStream fileInputStream = getClass().getClassLoader().getResourceAsStream( "config" + File.separator + "application.properties" );     
+                InputStream fileInputStream = new FileInputStream( "application.properties" );
 
                 properties.load( fileInputStream );
-                
+
                 fileInputStream.close();
-
-                File file = new File( "application.properties" );
-                
-                if( file.exists() )
-                {
-                    fileInputStream = new FileInputStream( file );
-
-                    properties.load( fileInputStream );
-                
-                    fileInputStream.close();
-                }
             }
                 
         }

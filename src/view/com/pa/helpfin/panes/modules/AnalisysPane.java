@@ -7,6 +7,7 @@ import com.pa.helpfin.view.inspectors.PostingCategoryDetails;
 import com.pa.helpfin.view.util.PostingTree;
 import java.util.Collections;
 import java.util.List;
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -62,7 +63,14 @@ public class AnalisysPane
     {
         borderPane.setPrefSize( width, height );
         
-        postingPane.resizeComponents( height - 40 , width - tree.getWidth() );
+        Platform.runLater( new Runnable() 
+        {
+            @Override
+            public void run() 
+            {
+                postingPane.resizeComponents( height - 40 , width - tree.getWidth() );
+            }
+        } );
     }
     
     private void initComponents()
