@@ -61,9 +61,9 @@ public class Database
     
     public void release() throws Exception
     {
-        if( connection != null )
+        if( connection != null && statment != null )
         {
-            connection.close();
+            statment.close();
         }
     }
     

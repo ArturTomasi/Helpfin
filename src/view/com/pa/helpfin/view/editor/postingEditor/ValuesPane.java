@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
@@ -126,7 +129,7 @@ public class ValuesPane
             
             for ( int i = 0; i < posting.getPortionTotal() - 1; i++ )
             {
-                DateField       dateField   = new DateField();
+                DateField dateField   = new DateField();
                 NumberTextField numberField = new NumberTextField();
                 
                 if( mapDates.get( i ) != null && mapValues.get( i ) != null ) //Troca de abas

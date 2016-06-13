@@ -85,14 +85,14 @@ public class MonthlyBalanceReport
                 {
                     sumValues[0] += posting.getEstimateValue();
                     sumValues[1] += posting.getRealValue();
-                    statesMap.put( state, new Double[]{ costValue += posting.getRealValue(), revenueValue }  );
+                    statesMap.put( state, new Double[]{ costValue += getValue( posting ), revenueValue }  );
                 }
                 
                 else if( category.getPostingType() == PostingType.TYPE_REVENUE )
                 {
                     sumValues[2] += posting.getEstimateValue();
                     sumValues[3] += posting.getRealValue();
-                    statesMap.put( state, new Double[]{ costValue, revenueValue += posting.getRealValue() }  );
+                    statesMap.put( state, new Double[]{ costValue, revenueValue += getValue( posting ) }  );
                 }
             }
 
@@ -175,5 +175,29 @@ public class MonthlyBalanceReport
         sumTable.addRow( "Total", nf.format( sumValues[2] - sumValues[0] ), nf.format( sumValues[3] - sumValues[1] ) );
         
         document.add( sumTable );
+    }
+
+    
+    private double getValue( Posting posting )
+    {
+        switch ( posting.getState() )
+        {
+            case Posting.STATE_FINISHED:
+            {
+                return posting.getRealValue();
+            }
+            
+            case Posting.STATE_PROGRESS:
+            case Posting.STATE_REGISTRED:
+            {
+                return posting.getEstimateValue();
+            }
+            
+            default :
+            {
+                return 0.0;
+            }
+        }
+
     }
 }

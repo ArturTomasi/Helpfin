@@ -1,6 +1,8 @@
 package com.pa.helpfin.model.data;
 
+import java.sql.Date;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -29,6 +31,25 @@ public class PostingFilter
     public static final int DEADLINE         = 16;
     public static final int IN_BUDGET        = 17;
 
+    public void loadDefaultFilter()
+    {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis( System.currentTimeMillis() );
+        cal.set( Calendar.DAY_OF_MONTH, cal.getActualMinimum( Calendar.DAY_OF_MONTH ) );
+        
+        Date from = new Date( cal.getTimeInMillis() );
+        
+        cal.add( Calendar.MONTH, 1 );
+        cal.set( Calendar.DAY_OF_MONTH, cal.getActualMaximum( Calendar.DAY_OF_MONTH ) );
+        
+        Date until = new Date( cal.getTimeInMillis() );
+        
+        addCondition( PostingFilter.ESTIMATE_DATE, new Date[]{ from, until } );
+        addCondition( PostingFilter.STATE, new Option( Posting.STATE_REGISTRED, Posting.STATES[ Posting.STATE_REGISTRED ] ) ); 
+        addCondition( PostingFilter.STATE, new Option( Posting.STATE_PROGRESS, Posting.STATES[ Posting.STATE_PROGRESS ] ) ); 
+        addCondition( PostingFilter.STATE, new Option( Posting.STATE_FINISHED, Posting.STATES[ Posting.STATE_FINISHED ] ) ); 
+    }
+    
     @Override
     public List<FilterItem> getComponents() 
     {

@@ -3,6 +3,7 @@ package com.pa.helpfin.view.selectors;
 import com.pa.helpfin.model.ResourceLocator;
 import com.pa.helpfin.view.util.EditorCallback;
 import java.util.List;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -85,9 +86,17 @@ public class ListPicker<T>
     
     public void open( String text )
     {
+        Platform.runLater( new Runnable() 
+        {
+            @Override
+            public void run() 
+            {
+                textField.requestFocus();
+                list.getSelectionModel().select( null );
+            }
+        } );
+
         setHeaderText( text );
-        textField.requestFocus();
-        list.getSelectionModel().select( null );
         showAndWait();
     }
     

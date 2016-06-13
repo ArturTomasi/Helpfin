@@ -16,7 +16,6 @@ public class PostingStateSelector
                 new Option( Posting.STATE_REGISTRED, Posting.STATES[ Posting.STATE_REGISTRED ] ), 
                 new Option( Posting.STATE_PROGRESS,  Posting.STATES[ Posting.STATE_PROGRESS ]  ), 
                 new Option( Posting.STATE_FINISHED,  Posting.STATES[ Posting.STATE_FINISHED ]  ), 
-                new Option( Posting.STATE_DELETED,   Posting.STATES[ Posting.STATE_DELETED ]   ), 
-                new Option( Posting.STATE_INACTIVE,  Posting.STATES[ Posting.STATE_INACTIVE ]  ) );
+                new Option( Posting.STATE_DELETED,   Posting.STATES[ Posting.STATE_DELETED ]   ) );
     }
 }

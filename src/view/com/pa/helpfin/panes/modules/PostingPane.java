@@ -39,24 +39,7 @@ public class PostingPane
     public PostingPane()
     {
         initComponents();
-        initDefaultFilter();
-    }
-    
-
-    private void initDefaultFilter()
-    {
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeInMillis( System.currentTimeMillis() );
-        cal.set( Calendar.DAY_OF_MONTH, cal.getActualMinimum( Calendar.DAY_OF_MONTH ) );
-        
-        Date from = new Date( cal.getTimeInMillis() );
-        
-        cal.add( Calendar.MONTH, 1 );
-        cal.set( Calendar.DAY_OF_MONTH, cal.getActualMaximum( Calendar.DAY_OF_MONTH ) );
-        
-        Date until = new Date( cal.getTimeInMillis() );
-        
-        filter.addCondition( PostingFilter.ESTIMATE_DATE, new Date[]{ from, until } );
+        filter.loadDefaultFilter();
     }
     
     private void addPosting()

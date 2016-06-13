@@ -1,6 +1,5 @@
 package com.pa.helpfin.model;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
@@ -41,7 +40,7 @@ public class ConfigurationManager
             {
                 properties = new Properties();
 
-                InputStream fileInputStream = new FileInputStream( "application.properties" );
+                InputStream fileInputStream = new FileInputStream( "application.properties"  );
 
                 properties.load( fileInputStream );
 
